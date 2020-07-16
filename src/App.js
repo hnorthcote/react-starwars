@@ -9,26 +9,38 @@ import './App.css';
 class App extends Component {
 
   state = {
-    starships: []
+    starships: [],
+    current:""
   }
  async componentDidMount() {
     const { results } = await getStarships();
     this.setState({ starships: results})
   }
-  render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        React Star Wars
-      </header>
-      <Switch>
-        <Route exact path='/' render={ props =>
-          <StarshipList {...props} starships={this.state.starships}/> }/>
 
-        <Route exact path='/:id' render={ props =>
-          <StarshipDetail {...props} starships={this.state.starships}/> }/>
-      </Switch>
-    </div>
+  handleCurrent = (current) => {
+    this.setState({current})
+  }
+ 
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          React Star Wars
+        </header>
+        <Switch>
+          <Route exact path='/' render={ props =>
+            <StarshipList {...props} 
+            starships={this.state.starships}
+            handleCurrent={this.handleCurrent}/> }
+          />
+
+          <Route exact path='/:id' render={ props =>
+            <StarshipDetail {...props} 
+            starships={this.state.starships}
+            current={this.state.current}/> }
+          />
+        </Switch>
+      </div>
   );}
 }
 

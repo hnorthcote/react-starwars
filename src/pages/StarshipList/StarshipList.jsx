@@ -1,11 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-// Link from react-router-dom
+function starshipList (props) {
+  const starship = props.starships;
 
-function StarshipList(props) {
-    return (
-        <div>Starship List</div>
-    );
+    return(
+        <div>
+            { !starship && <div className="loading">
+            Loading... {console.log(starship)}
+            </div>}
+            
+
+            {starship.map((starship, idx)=> 
+                <Link 
+                className='starshipCard'
+                key={idx} 
+                name={starship.name}
+                onClick={() => props.handleCurrent(starship.name)}
+                to={`/:${idx}`}
+                >{starship.name}</Link>
+            )}
+            
+        
+         </div>
+    )
 }
 
-export default StarshipList;
+
+export default starshipList
+
+  
