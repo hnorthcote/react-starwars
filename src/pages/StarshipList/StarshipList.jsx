@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import  styles  from './StarshipList.module.css';
 
 function starshipList (props) {
   const starship = props.starships;
 
     return(
-        <div>
+        <div className={styles.starshipList}>
             { !starship && <div className="loading">
             Loading... {console.log(starship)}
             </div>}
@@ -13,7 +14,7 @@ function starshipList (props) {
 
             {starship.map((starship, idx)=> 
                 <Link 
-                className='starshipCard'
+                className={styles.starshipCard}
                 key={idx} 
                 name={starship.name}
                 onClick={() => props.handleCurrent(starship.name)}

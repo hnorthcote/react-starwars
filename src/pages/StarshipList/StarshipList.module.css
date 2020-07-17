@@ -1,0 +1,29 @@
+.starshipList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: 50px;
+
+    
+}
+
+.starshipCard {
+    display: flex;
+    flex-flow: nowrap;
+    width: 300px;
+    height: 160px;
+    margin: 20px;
+    border-width: 1px;
+    border-radius: 25px;
+    border-style: solid;
+    cursor: pointer;
+    background-color: var(--card-color);
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+       
+}

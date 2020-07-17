@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import styles from './StarshipDetail.module.css'
 
 function StarshipDetail (props) {
     const starships = [...props.starships]
     const currentStarship = starships.find(C => C.name===props.current)
 return(
-    <div className="detailCard">
+    <div className={styles.detailScreen}>
         { !currentStarship && <div className='loading'>
           Loading... {console.log(currentStarship)}
         </div> }
              
-        <>
-            <div >{currentStarship.name}</div>
-            <div >{currentStarship.model}</div>
-            <Link className='return' to='/'>Return</Link>
-        </>
+        <div className={styles.detailCard}>
+            <div >NAME:     {currentStarship.name}</div>
+            <div >MODEL:     {currentStarship.model}</div>
+            <Link className={styles.return} to='/'>RETURN</Link>
+        </div>
      </div>
   )
   }

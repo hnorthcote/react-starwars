@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          React Star Wars
+          STAR WARS STARSHIPS
         </header>
         <Switch>
           <Route exact path='/' render={ props =>
